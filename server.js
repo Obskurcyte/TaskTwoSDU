@@ -8,7 +8,10 @@ import {User} from "./models/user.js";
 import {validationResult} from "express-validator";
 import jwt from 'jsonwebtoken';
 import {Server} from "socket.io";
-
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -252,7 +255,11 @@ app.get('/', async (req, res, next) => {
     res.json({users: users.map(user => user.toObject({getters: true}))})
 });
 
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+});
 
 const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.0auvp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
