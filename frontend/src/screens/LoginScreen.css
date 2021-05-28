@@ -1,0 +1,9 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginFormContainer {
+    margin: 0 auto;
+    width: 15%;
+}
