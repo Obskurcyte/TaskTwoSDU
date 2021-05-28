@@ -32,7 +32,6 @@ io.on('connection', socket => {
     });
 
     socket.on("send_message", (data) => {
-        console.log(data.room)
         socket.to(data.room.toString()).emit("receive_message", data.content)
     })
 
