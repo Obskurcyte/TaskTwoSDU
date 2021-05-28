@@ -5,10 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "serve -s build",
-    "build": "react-scripts --max_old_space_size=4096 build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
