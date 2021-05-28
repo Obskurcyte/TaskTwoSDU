@@ -18,7 +18,7 @@ app.use(cors());
 
 const server = http.createServer(app)
 const io = new Server(server, {cors : {origin: '*'}});
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 
 //Socket connection
