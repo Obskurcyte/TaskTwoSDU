@@ -213,7 +213,6 @@ app.patch('/updatescore', async (req, res, next) => {
     try {
         await user.save();
     } catch (err) {
-        console.log(err)
         const error = new Error('Something went wrong')
         return next(error)
     }
